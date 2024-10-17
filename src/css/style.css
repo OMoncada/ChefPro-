@@ -1,0 +1,205 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px 0 0;
+    background-color: white;
+}
+
+.alert-header {
+    background-color: #32CD32;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-top: -10px;
+}
+
+.alert-header .left-alert p {
+    margin: 0;
+    font-size: 22px;
+}
+
+.alert-header .right-alert a img {
+    width: 20px;
+    margin-left: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+header .logo img {
+    width: 250px;
+    margin-left: 30px;
+    margin-top: -10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    margin-right: 30px;
+    margin-top: -10px;
+}
+
+nav ul li {
+    margin-left: 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #32CD32;
+    /* Cambia al verde de la página al pasar el mouse */
+}
+
+/* Sección de la demo */
+.demo-section {
+    background: url('/src/images/fondo.webp') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -15px;
+}
+
+.demo-section p {
+    font-size: 25px;
+    text-align: center;
+}
+
+/* Contenedor del formulario con transparencia */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo blanco con transparencia */
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    color: #333;
+}
+
+.form-container p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.form-container form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-container form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container form button:hover {
+    background-color: #28a745;
+}
+
+/* Sección de categorías */
+.categories {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.categories h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.category-container {
+    display: flex;
+    justify-content: space-evenly;
+    /* Distribuye el espacio entre los cuadros */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.category {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    /* Animación de hover */
+}
+
+.category img {
+    width: 60px;
+    /* Ajusta el tamaño del logo */
+    margin-bottom: 10px;
+}
+
+.category p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    /* Efecto de levantar al hacer hover */
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    /* Fondo oscuro */
+    color: white;
+    /* Texto blanco */
+    text-align: center;
+    /* Centrar el texto */
+    padding: 20px 0;
+    /* Espaciado arriba y abajo */
+    position: relative;
+    /* Si deseas que el footer sea estático */
+    bottom: 0;
+    width: 100%;
+    /* Asegurarse de que el footer ocupe todo el ancho */
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+    /* Eliminar márgenes para que el texto esté centrado verticalmente */
+}

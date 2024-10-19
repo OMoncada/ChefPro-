@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChefPro - Recetario</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="/src/images/logo.png" alt="ChefPro Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Agenda tu demo</a></li>
+                <li><a href="#">Recetario</a></li>
+                <li><a href="#">Tienda</a></li>
+                <li><a href="/src/contact/contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-recipes">
+        </section>
+
+        <div class="filters">
+            <h3>Filtrar Recetas</h3>
+
+            <!-- Filtro para ordenar por nombre -->
+            <label for="sort-name">Ordenar por nombre</label>
+            <select id="sort-name">
+                <option value="asc">A-Z</option>
+                <option value="desc">Z-A</option>
+            </select>
+
+            <!-- Filtro para dificultad -->
+            <label for="difficulty">Dificultad</label>
+            <select id="difficulty">
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+            </select>
+
+            <!-- Filtro para tiempo total -->
+            <label for="time">Tiempo Total</label>
+            <select id="time">
+                <option value="15">Menos de 15 min</option>
+                <option value="30">Menos de 30 min</option>
+                <option value="45">Menos de 45 min</option>
+            </select>
+
+            <button id="filter-btn">Filtrar</button>
+            <a href="#">Limpiar Filtros</a>
+        </div>
+
+        <div id="recipe-container">
+            <!-- Aquí se cargarán las recetas -->
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Archivo JS para manejar los filtros y cargar las recetas -->
+    <script src="/src/js/recipes.js"></script>
+</body>
+
+</html>

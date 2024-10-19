@@ -132,7 +132,24 @@ nav ul li a:hover {
     background-color: #28a745;
 }
 
-/* Sección de categorías */
+/* Sección de recipes */
+.hero-recipes {
+    background: url('/src/images/recipes.png') no-repeat center center/cover;
+    height: 60vh;
+    /* La imagen será menos alta */
+    width: 100%;
+    /* Ancho completo, pero menos altura */
+    max-width: 1000%;
+    /* O limitar el ancho */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -15px;
+}
+
+/* Sección de categorías recetas*/
 .categories {
     text-align: center;
     margin: 50px 0;
@@ -180,6 +197,70 @@ nav ul li a:hover {
     transform: translateY(-5px);
     /* Efecto de levantar al hacer hover */
 }
+
+/* Contenedor de los filtros */
+.filters {
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters h3 {
+    color: #32CD32;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.filters ul li {
+    margin-bottom: 15px;
+}
+
+.filters ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.filters ul li a:hover {
+    color: #32CD32;
+}
+
+/* Estilo del botón de filtrar */
+.filters button {
+    background-color: #32CD32;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.filters button:hover {
+    background-color: #28a745;
+}
+
+/* Enlace para limpiar filtros */
+.filters a {
+    color: #32CD32;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.filters a:hover {
+    text-decoration: underline;
+}
+
 
 /* Estilos para el footer */
 footer {

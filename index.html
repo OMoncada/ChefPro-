@@ -18,7 +18,7 @@
         <nav>
             <ul>
                 <li><a href="#">Agenda tu demo</a></li>
-                <li><a href="#">Recetario</a></li>
+                <li><a href="src/recipes/recipes.html">Recetario</a></li>
                 <li><a href="#">Tienda</a></li>
                 <li><a href="/src/contact/contact.html">Contacto</a></li>
             </ul>
@@ -44,22 +44,7 @@
         <section class="categories">
             <h2>Nuestras Categorías</h2>
             <div class="category-container">
-                <div class="category">
-                    <img src="/src/images/desayuno.png" alt="Desayuno Logo">
-                    <p>Desayuno</p>
-                </div>
-                <div class="category">
-                    <img src="/src/images/almuerzo.png" alt="Almuerzo Logo">
-                    <p>Almuerzo</p>
-                </div>
-                <div class="category">
-                    <img src="/src/images/merienda.png" alt="Merienda Logo">
-                    <p>Merienda</p>
-                </div>
-                <div class="category">
-                    <img src="/src/images/cena.png" alt="Cena Logo">
-                    <p>Cena</p>
-                </div>
+                <!-- Aquí se cargarán dinámicamente las categorías desde la API -->
             </div>
         </section>
 
@@ -69,7 +54,9 @@
         <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>
     </footer>
 
-</body>
+    <!-- Agregamos un script para cargar las categorías desde la API -->
+    <script src="src/js/index.js"></script>
 
+</body>
 
 </html>

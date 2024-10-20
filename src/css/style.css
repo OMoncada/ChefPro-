@@ -149,54 +149,64 @@ nav ul li a:hover {
     margin-top: -15px;
 }
 
-/* Sección de categorías recetas*/
+/* Sección de categorías recetas */
 .categories {
     text-align: center;
     margin: 50px 0;
 }
 
 .categories h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    /* Aumenta el tamaño del título */
+    margin-bottom: 30px;
     color: #333;
 }
 
+/* Diseño de cuadrícula para organizar las categorías */
 .category-container {
-    display: flex;
-    justify-content: space-evenly;
-    /* Distribuye el espacio entre los cuadros */
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* Ajuste flexible del número de columnas */
+    gap: 20px;
+    /* Espacio entre las tarjetas de categoría */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Centra la cuadrícula */
 }
 
+/* Estilos para cada tarjeta de categoría */
 .category {
     background-color: #f9f9f9;
     border-radius: 10px;
-    width: 200px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 10px;
-    transition: transform 0.3s ease;
-    /* Animación de hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Ajuste de tamaño para tablets y pantallas más grandes */
 }
 
 .category img {
-    width: 60px;
-    /* Ajusta el tamaño del logo */
-    margin-bottom: 10px;
+    width: 100px;
+    /* Ajuste del tamaño de las imágenes */
+    height: auto;
+    border-radius: 50%;
+    /* Estilo circular para las imágenes */
+    margin-bottom: 15px;
 }
 
 .category p {
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #333;
 }
 
 .category:hover {
     transform: translateY(-5px);
-    /* Efecto de levantar al hacer hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* Efecto hover */
 }
+
 
 /* Contenedor de los filtros */
 .filters {
@@ -261,6 +271,131 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Estilo para la cuadrícula de recetas */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    /* Ajuste para que la cuadrícula no ocupe todo el ancho */
+}
+
+/* Estilo de cada tarjeta de receta */
+.recipe-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-item img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.recipe-item h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.recipe-item a {
+    color: #32CD32;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.recipe-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/*estilo para el carrusel de featured recipes*/
+
+main h2 {
+    text-align: center;
+    /* Centra el texto */
+    font-size: 2.5rem;
+    /* Agranda el tamaño de la fuente */
+    color: #333;
+    /* Ajusta el color, opcional */
+    margin: 20px 0;
+    /* Añade espacio arriba y abajo del h2 */
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    /* Ajusta el ancho del contenedor para que no ocupe toda la página */
+    max-width: 1000px;
+    /* Ancho máximo del carrusel */
+    margin: 0 auto;
+    /* Centra el carrusel horizontalmente */
+    overflow: hidden;
+    padding: 20px 0;
+    /* Añade algo de espacio arriba y abajo del carrusel */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    max-width: 800px;
+}
+
+.recipe-card {
+    min-width: 100%;
+    /* Cada imagen ocupa el 100% del carrusel */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.recipe-card img {
+    width: 70%;
+    /* Ajusta el ancho de las imágenes */
+    height: auto;
+    /* Mantén la proporción original de la imagen */
+    border-radius: 10px;
+    margin: 0 auto;
+    /* Centra la imagen dentro del carrusel */
+}
+
+.recipe-card h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
 
 /* Estilos para el footer */
 footer {

@@ -16,7 +16,7 @@ function displayCategories(categories) {
     categoryContainer.innerHTML = ''; // Limpiar el contenido antes de añadir nuevas categorías
 
     categories.forEach(category => {
-        // Crear una tarjeta de categoría con un enlace a recipe.html
+        // Verifica que la ruta al archivo recipe.html esté correcta
         const categoryCard = `
             <div class="category-item">
                 <a href="/src/recipe/recipe.html?category=${category.strCategory}">

@@ -1,7 +1,6 @@
 // Obtener la categoría seleccionada de la URL
 const params = new URLSearchParams(window.location.search);
 const category = params.get('category');
-const apiURL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
 
 // Llamar a la API para obtener las recetas por categoría
 fetch(apiURL)

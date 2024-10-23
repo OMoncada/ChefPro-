@@ -16,7 +16,8 @@ function displayCategories(categories) {
     categoryContainer.innerHTML = ''; // Limpiar el contenido antes de añadir nuevas categorías
 
     categories.forEach(category => {
-        // Crear una tarjeta de categoría con un enlace a recipes.html
+        console.log(`Generando enlace para: ${category.strCategory}`); // Depurar el nombre de la categoría
+
         const categoryCard = `
             <div class="category-item">
                 <a href="src/recipes/recipes.html?category=${category.strCategory}">
@@ -28,6 +29,7 @@ function displayCategories(categories) {
         categoryContainer.innerHTML += categoryCard;
     });
 }
+
 
 // Funcionalidad para el carrusel de categorías
 const categoryCarousel = document.getElementById('category-carousel');

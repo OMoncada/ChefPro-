@@ -18,12 +18,11 @@ function displayCategories(categories) {
     categories.forEach(category => {
         console.log(`Generando enlace para: ${category.strCategory}`); // Depurar el nombre de la categoría
 
+        // Crear una tarjeta de categoría sin el enlace a recipes.html
         const categoryCard = `
             <div class="category-item">
-                <a href="src/recipes/recipes.html?category=${category.strCategory}">
-                    <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
-                    <p>${category.strCategory}</p>
-                </a>
+                <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
+                <p>${category.strCategory}</p>
             </div>
         `;
         categoryContainer.innerHTML += categoryCard;

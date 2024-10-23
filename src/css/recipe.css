@@ -48,7 +48,7 @@ nav ul li a:hover {
 }
 
 /* Sección de recipes */
-.hero-recipes {
+.hero-recipe {
     background: url('/src/images/recipes.png') no-repeat center center/cover;
     height: 60vh;
     /* La imagen será menos alta */

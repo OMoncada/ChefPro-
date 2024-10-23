@@ -10,24 +10,23 @@ fetch(apiURL)
     })
     .catch(error => console.error('Error al cargar las categorías:', error));
 
-// Función para mostrar las categorías en el contenedor de categorías
 function displayCategories(categories) {
     const categoryContainer = document.querySelector('.category-container');
     categoryContainer.innerHTML = ''; // Limpiar el contenido antes de añadir nuevas categorías
 
     categories.forEach(category => {
-        // Verifica que la ruta al archivo recipe.html esté correcta
         const categoryCard = `
-            <div class="category-item">
-                <a href="/src/recipe/recipe.html?category=${category.strCategory}">
-                    <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
-                    <p>${category.strCategory}</p>
-                </a>
-            </div>
-        `;
+                <div class="category-item">
+                    <a href="src/recipe/recipe.html?category=${category.strCategory}">
+                        <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
+                        <p>${category.strCategory}</p>
+                    </a>
+                </div>
+            `;
         categoryContainer.innerHTML += categoryCard;
     });
 }
+
 
 // Funcionalidad para el carrusel de categorías
 const categoryCarousel = document.getElementById('category-carousel');

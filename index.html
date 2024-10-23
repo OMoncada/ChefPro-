@@ -31,13 +31,15 @@
                 <h2>¿Interesado en conocer más de ChefPro?</h2>
                 <p>Agenda una demostración online, personal y gratuita.</p>
                 <form>
-                    <!-- Usamos placeholders en lugar de etiquetas -->
-                    <input type="email" id="email" name="email" placeholder="Correo electrónico *" required>
-                    <input type="text" id="name" name="name" placeholder="Nombre *" required>
-                    <input type="tel" id="phone" name="phone" placeholder="Teléfono *" required>
-                    <input type="text" id="city" name="city" placeholder="Ciudad *" required>
+                    <input type="email" id="email" name="email" placeholder="Correo electrónico *" autocomplete="email"
+                        required>
+                    <input type="text" id="name" name="name" placeholder="Nombre *" autocomplete="name" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Teléfono *" autocomplete="tel" required>
+                    <input type="text" id="city" name="city" placeholder="Ciudad *" autocomplete="address-level2"
+                        required>
                     <button type="submit">ENVIAR</button>
                 </form>
+
             </div>
         </section>
 

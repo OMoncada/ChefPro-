@@ -208,69 +208,6 @@ nav ul li a:hover {
 }
 
 
-/* Contenedor de los filtros */
-.filters {
-    background-color: #f8f8f8;
-    padding: 20px;
-    margin-right: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.filters h3 {
-    color: #32CD32;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.filters ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.filters ul li {
-    margin-bottom: 15px;
-}
-
-.filters ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.filters ul li a:hover {
-    color: #32CD32;
-}
-
-/* Estilo del botón de filtrar */
-.filters button {
-    background-color: #32CD32;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.filters button:hover {
-    background-color: #28a745;
-}
-
-/* Enlace para limpiar filtros */
-.filters a {
-    color: #32CD32;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.filters a:hover {
-    text-decoration: underline;
-}
-
 /* Estilo para la cuadrícula de recetas */
 .recipe-grid {
     display: grid;
@@ -283,6 +220,26 @@ nav ul li a:hover {
 }
 
 /* Estilo de cada tarjeta de receta */
+
+main h4 {
+    font-size: 24px;
+    /* Ajusta el tamaño de la fuente */
+    font-weight: bold;
+    /* Negrita para hacer que el título se destaque */
+    color: #32CD32;
+    /* Un color verde (puedes cambiarlo según tu preferencia) */
+    text-align: center;
+    /* Centrar el texto */
+    margin-top: 200px;
+    /* Espacio en la parte superior */
+    margin-bottom: 20px;
+    /* Espacio en la parte inferior */
+    text-transform: uppercase;
+    /* Todo en mayúsculas */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+}
+
 .recipe-item {
     background-color: #fff;
     border-radius: 10px;

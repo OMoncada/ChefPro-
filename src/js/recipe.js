@@ -3,16 +3,18 @@ const params = new URLSearchParams(window.location.search);
 const category = params.get('category');
 const apiURL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
 
-// Actualizar el título con la categoría seleccionada
-document.getElementById('category-title').textContent = `Categoría seleccionada: ${category}`;
-
-// Llamar a la API para obtener las recetas por categoría
-fetch(apiURL)
-    .then(response => response.json())
-    .then(data => {
-        displayRecipes(data.meals);  // Llamar a la función para mostrar las recetas en el carrusel
-    })
-    .catch(error => console.error('Error al cargar las recetas:', error));
+// Verificar si hay una categoría seleccionada
+if (category) {
+    // Llamar a la API para obtener las recetas por categoría
+    fetch(apiURL)
+        .then(response => response.json())
+        .then(data => {
+            displayRecipes(data.meals);  // Llamar a la función para mostrar las recetas
+        })
+        .catch(error => console.error('Error al cargar las recetas:', error));
+} else {
+    console.error('No se seleccionó ninguna categoría');
+}
 
 // Función para mostrar las recetas en el carrusel
 function displayRecipes(recipes) {
@@ -29,8 +31,7 @@ function displayRecipes(recipes) {
         recipeCarousel.innerHTML += recipeCard;
     });
 
-    // Configuración del carrusel
-    const carousel = document.querySelector('.carousel');
+    // Lógica para el carrusel (desplazamiento entre recetas)
     const slides = document.querySelectorAll('.recipe-card');
     let currentSlide = 0;
 

@@ -36,13 +36,13 @@ function getRandomRecipes(recipes, num) {
     return recipes.sort(() => 0.5 - Math.random()).slice(0, num);
 }
 
-// Función para mostrar las recetas aleatorias en el carrusel
+// Función para mostrar las recetas aleatorias en una cuadrícula
 function displayRandomRecipes(recipes) {
-    const carousel = document.getElementById('carousel');
-    carousel.innerHTML = ''; // Limpiar el carrusel antes de añadir nuevas recetas
+    const randomGridContainer = document.getElementById('random-grid'); // Cambiamos 'carousel' a 'random-grid'
+    randomGridContainer.innerHTML = ''; // Limpiar el contenedor antes de añadir nuevas recetas
 
     if (recipes.length === 0) {
-        carousel.innerHTML = '<p>No se encontraron recetas.</p>';
+        randomGridContainer.innerHTML = '<p>No se encontraron recetas.</p>';
         return;
     }
 
@@ -53,27 +53,6 @@ function displayRandomRecipes(recipes) {
                 <h3>${recipe.strMeal}</h3>
             </div>
         `;
-        carousel.innerHTML += recipeCard;
+        randomGridContainer.innerHTML += recipeCard; // Insertar la receta en el contenedor
     });
-
-    // Configurar el carrusel
-    const slides = document.querySelectorAll('.recipe-card');
-    updateCarousel(slides);
-
-    document.getElementById('next').addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateCarousel(slides);
-    });
-
-    document.getElementById('prev').addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateCarousel(slides);
-    });
-}
-
-// Función para actualizar la posición del carrusel
-function updateCarousel(slides) {
-    const carousel = document.getElementById('carousel');
-    const slideWidth = slides[0].offsetWidth;
-    carousel.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
 }

@@ -12,9 +12,10 @@ fetch(apiURL)
     .catch(error => console.error('Error al cargar las recetas:', error));
 
 // Función para mostrar las recetas en el contenedor de la cuadrícula
+// Función para mostrar las recetas en la cuadrícula
 function displayRecipes(recipes) {
-    const recipeGrid = document.querySelector('.recipe-grid');  // Usamos la clase recipe-grid
-    recipeGrid.innerHTML = '';  // Limpiar el contenedor antes de añadir nuevas recetas
+    const recipeGrid = document.querySelector('.recipe-grid'); // Usamos la clase recipe-grid
+    recipeGrid.innerHTML = ''; // Limpiar el contenedor antes de añadir nuevas recetas
 
     recipes.forEach(recipe => {
         const recipeCard = `

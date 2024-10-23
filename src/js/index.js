@@ -18,7 +18,7 @@ function displayCategories(categories) {
     categories.forEach(category => {
         // Crear una tarjeta de categoría con un enlace a recipes.html
         const categoryCard = `
-            <div class="category">
+            <div class="category-item">
                 <a href="src/recipes/recipes.html?category=${category.strCategory}">
                     <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
                     <p>${category.strCategory}</p>
@@ -28,3 +28,24 @@ function displayCategories(categories) {
         categoryContainer.innerHTML += categoryCard;
     });
 }
+
+// Funcionalidad para el carrusel de categorías
+const categoryCarousel = document.getElementById('category-carousel');
+const prevButton = document.getElementById('category-prev');
+const nextButton = document.getElementById('category-next');
+
+// Desplazar el carrusel hacia la izquierda
+prevButton.addEventListener('click', () => {
+    categoryCarousel.scrollBy({
+        left: -categoryCarousel.clientWidth, // Desplazar la misma cantidad que el ancho visible
+        behavior: 'smooth'
+    });
+});
+
+// Desplazar el carrusel hacia la derecha
+nextButton.addEventListener('click', () => {
+    categoryCarousel.scrollBy({
+        left: categoryCarousel.clientWidth, // Desplazar la misma cantidad que el ancho visible
+        behavior: 'smooth'
+    });
+});

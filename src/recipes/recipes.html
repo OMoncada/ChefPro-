@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChefPro - Recetario</title>
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/recipes.css">
 </head>
 
 <body>
@@ -60,8 +60,13 @@
             <a href="#">Limpiar Filtros</a>
         </div>
 
-        <div class="recipe-grid">
-            <!-- Aquí se cargarán las recetas desde la API -->
+        <h2>Recetas de la categoría seleccionada</h2>
+        <div class="recipe-carousel-container">
+            <button id="prev" class="carousel-button">❮</button>
+            <div class="recipe-carousel">
+                <!-- Aquí se cargarán dinámicamente las recetas en formato carrusel -->
+            </div>
+            <button id="next" class="carousel-button">❯</button>
         </div>
 
 

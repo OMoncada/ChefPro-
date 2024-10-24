@@ -18,7 +18,7 @@
         <nav>
             <ul>
                 <li><a href="#">Agenda tu demo</a></li>
-                <li><a href="src/recipes/featured_recipes.html">Recetario</a></li>
+                <li><a href="src/recipe/featured_recipes.html">Recetario</a></li>
                 <li><a href="#">Tienda</a></li>
                 <li><a href="/src/contact/contact.html">Contacto</a></li>
             </ul>
@@ -41,10 +41,34 @@
             </div>
         </section>
 
+        <section class="proposito-section">
+            <div class="proposito-container">
+                <div class="proposito-image">
+                    <img src="/src/images/purpose.png" alt=" imagen destacada">
+                </div>
+                <div class="proposito-content">
+                    <h2>Nuestro Propósito</h2>
+                    <p>
+                        Ponemos a tu alcance miles de recetas mediante nuestro recetario. Estamos constantemente
+                        agregando nuevas recetas creadas y adaptadas por nuestro equipo para que funcionen perfectamente
+                        paso a paso en tu cocina. Logra resultados perfectos y sorprende a tu familia e invitados con
+                        increíbles preparaciones.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
         <section class="categories">
-            <h2>Nuestras Categorías</h2>
-            <div class="category-container">
-                <!-- Aquí se cargarán dinámicamente las categorías desde la API -->
+            <h5>Nuestras Categorías</h5>
+            <div class="category-carousel-container">
+                <button id="category-prev" class="category-carousel-button">❮</button>
+                <div id="category-carousel" class="category-carousel">
+                    <div class="category-container">
+                        <!-- Aquí se cargarán dinámicamente las categorías desde la API -->
+                    </div>
+                </div>
+                <button id="category-next" class="category-carousel-button">❯</button>
             </div>
         </section>
 
@@ -54,7 +78,6 @@
         <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Agregamos un script para cargar las categorías desde la API -->
     <script src="src/js/index.js"></script>
 
 </body>

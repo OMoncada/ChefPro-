@@ -36,44 +36,64 @@ function getRandomRecipes(recipes, num) {
     return recipes.sort(() => 0.5 - Math.random()).slice(0, num);
 }
 
-// Función para mostrar las recetas aleatorias en el carrusel
+// Función para obtener el ingrediente principal de una receta específica
+function fetchMainIngredient(recipeId) {
+    const recipeDetailURL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`;
+    return fetch(recipeDetailURL)
+        .then(response => response.json())
+        .then(data => {
+            const recipe = data.meals[0];
+            // Devolvemos el primer ingrediente que no sea nulo
+            const ingredient = recipe.strIngredient1 || 'Ingrediente principal no disponible';
+            return ingredient;
+        })
+        .catch(error => {
+            console.error(`Error al obtener el ingrediente principal para la receta ${recipeId}:`, error);
+            return 'Ingrediente principal no disponible'; // Devuelve un mensaje si no se puede obtener
+        });
+}
+
+// Función para mostrar las recetas aleatorias en una cuadrícula
 function displayRandomRecipes(recipes) {
-    const carousel = document.getElementById('carousel');
-    carousel.innerHTML = ''; // Limpiar el carrusel antes de añadir nuevas recetas
+    const randomGridContainer = document.getElementById('random-grid'); // Cambiamos 'carousel' a 'random-grid'
+    randomGridContainer.innerHTML = ''; // Limpiar el contenedor antes de añadir nuevas recetas
 
     if (recipes.length === 0) {
-        carousel.innerHTML = '<p>No se encontraron recetas.</p>';
+        randomGridContainer.innerHTML = '<p>No se encontraron recetas.</p>';
         return;
     }
 
     recipes.forEach(recipe => {
-        const recipeCard = `
-            <div class="recipe-card">
-                <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
-                <h3>${recipe.strMeal}</h3>
-            </div>
-        `;
-        carousel.innerHTML += recipeCard;
+        // Aquí obtenemos el ingrediente principal de cada receta
+        fetchMainIngredient(recipe.idMeal).then(ingredient => {
+            const recipeCard = `
+                <div class="recipe-card">
+                    <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
+                    <h3>${recipe.strMeal}</h3>
+                    <div class="tooltip">
+                        <p>Ingrediente principal: ${ingredient}</p>
+                        <p>Busca más detalles en el recetario</p>
+                    </div> <!-- Tooltip que aparecerá al pasar el mouse -->
+                </div>
+            `;
+            randomGridContainer.innerHTML += recipeCard;
+        });
     });
 
-    // Configurar el carrusel
-    const slides = document.querySelectorAll('.recipe-card');
-    updateCarousel(slides);
-
-    document.getElementById('next').addEventListener('click', () => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateCarousel(slides);
+    // Agregar el evento de hover para mostrar el tooltip
+    randomGridContainer.addEventListener('mouseover', (event) => {
+        if (event.target.closest('.recipe-card')) {
+            const card = event.target.closest('.recipe-card');
+            const tooltip = card.querySelector('.tooltip');
+            tooltip.style.display = 'block'; // Mostrar el tooltip al hacer hover
+        }
     });
 
-    document.getElementById('prev').addEventListener('click', () => {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateCarousel(slides);
+    randomGridContainer.addEventListener('mouseout', (event) => {
+        if (event.target.closest('.recipe-card')) {
+            const card = event.target.closest('.recipe-card');
+            const tooltip = card.querySelector('.tooltip');
+            tooltip.style.display = 'none'; // Ocultar el tooltip cuando se quita el hover
+        }
     });
-}
-
-// Función para actualizar la posición del carrusel
-function updateCarousel(slides) {
-    const carousel = document.getElementById('carousel');
-    const slideWidth = slides[0].offsetWidth;
-    carousel.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
 }

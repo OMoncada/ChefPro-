@@ -2,9 +2,11 @@
 const params = new URLSearchParams(window.location.search);
 const category = params.get('category');
 const apiURL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
+const searchAPIURL = `https://www.themealdb.com/api/json/v1/1/search.php?s=`;
 
 // Guardaremos las áreas disponibles para la categoría seleccionada
 let availableAreas = new Set();
+let debounceTimer;
 
 // Cargar las recetas iniciales por categoría
 fetch(apiURL)
@@ -226,6 +228,43 @@ function addCarouselButtons(carouselWrapper, carousel, totalItems) {
 
     updateCarousel();
 }
+
+// Funcionalidad para el buscador con debounce
+document.querySelector('.search-bar input').addEventListener('input', function () {
+    clearTimeout(debounceTimer); // Limpiar el temporizador anterior
+
+    const searchTerm = this.value.trim();
+
+    debounceTimer = setTimeout(() => {
+        if (searchTerm === '') {
+            // Si el campo de búsqueda está vacío, cargar todas las recetas de la categoría
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(data => {
+                    const recipes = data.meals;
+                    createCarousel(recipes); // Volver a mostrar todas las recetas de la categoría
+                })
+                .catch(error => console.error('Error al recargar las recetas:', error));
+        } else {
+            // Buscar recetas por nombre
+            fetch(`${searchAPIURL}${searchTerm}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.meals) {
+                        const filteredRecipes = data.meals.filter(recipe => recipeMatchesCategory(recipe));
+                        if (filteredRecipes.length > 0) {
+                            createCarousel(filteredRecipes); // Mostrar las recetas filtradas
+                        } else {
+                            showNoResultsMessage(`"${searchTerm}" en la categoría seleccionada`);
+                        }
+                    } else {
+                        showNoResultsMessage(`"${searchTerm}"`);
+                    }
+                })
+                .catch(error => console.error('Error al buscar recetas:', error));
+        }
+    }, 300); // Espera 300ms antes de realizar la solicitud
+});
 
 // Función para limpiar los filtros y restaurar el estado inicial
 document.querySelector('.filters a').addEventListener('click', function (event) {

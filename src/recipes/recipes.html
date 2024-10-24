@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChefPro - Recetario</title>
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="/src/css/recipes.css">
 </head>
 
 <body>
@@ -23,49 +23,54 @@
             </ul>
         </nav>
     </header>
-
+    <section class="hero-recipes">
+    </section>
     <main>
-        <section class="hero-recipes">
+        <!-- Sección de búsqueda -->
+        <section class="search-recipes">
+            <h2>Encuentra tus recetas favoritas</h2>
+            <p>Escribe palabras clave o selecciona una categoría para ver las recetas</p>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="example: Apam balik">
+                <button id="search-button">Search</button>
+            </div>
         </section>
 
-        <h4>Recetas</h4>
+        <!-- Contenedor para filtros y carrusel o recetas -->
+        <div class="content-container">
+            <!-- Filtros en formato de columna -->
+            <div class="filters">
+                <h3>Filtrar Recetas</h3>
 
-        <div class="filters">
-            <h3>Filtrar Recetas</h3>
+                <!-- Filtro para ordenar por nombre -->
+                <div class="filter-group">
+                    <label for="sort">Ordenar por</label>
+                    <select id="sort">
+                        <option value="asc">A-Z</option>
+                        <option value="desc">Z-A</option>
+                    </select>
+                </div>
 
-            <!-- Filtro para ordenar por nombre -->
-            <label for="sort-name">Ordenar por nombre</label>
-            <select id="sort-name">
-                <option value="asc">A-Z</option>
-                <option value="desc">Z-A</option>
-            </select>
 
-            <!-- Filtro para dificultad -->
-            <label for="difficulty">Dificultad</label>
-            <select id="difficulty">
-                <option value="baja">Baja</option>
-                <option value="media">Media</option>
-                <option value="alta">Alta</option>
-            </select>
+                <!-- Filtro de área -->
+                <div class="filter-group">
+                    <label for="area">Área</label>
+                    <select id="area">
+                        <!-- Aquí se rellenarán las áreas dinámicamente -->
+                    </select>
+                </div>
 
-            <!-- Filtro para tiempo total -->
-            <label for="time">Tiempo Total</label>
-            <select id="time">
-                <option value="15">Menos de 15 min</option>
-                <option value="30">Menos de 30 min</option>
-                <option value="45">Menos de 45 min</option>
-            </select>
+                <button id="filter-btn">Filtrar</button>
+                <a href="#">Limpiar Filtros</a>
+            </div>
 
-            <button id="filter-btn">Filtrar</button>
-            <a href="#">Limpiar Filtros</a>
+            <!-- Recetas cargadas o carrusel -->
+            <div class="recipe-grid">
+            </div>
         </div>
-
-        <div class="recipe-grid">
-            <!-- Aquí se cargarán las recetas desde la API -->
-        </div>
-
-
     </main>
+
+
 
     <footer>
         <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>

@@ -210,6 +210,7 @@ nav ul li a:hover {
 
 /* Contenedor de los filtros */
 .filters {
+    text-align: center;
     background-color: #f8f8f8;
     padding: 20px;
     margin-right: 20px;

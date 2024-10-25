@@ -1,0 +1,205 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px 0 0;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+header .logo img {
+    width: 250px;
+    margin-left: 30px;
+    margin-top: -10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    margin-right: 30px;
+    margin-top: -10px;
+}
+
+nav ul li {
+    margin-left: 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #32CD32;
+    /* Cambia al verde de la página al pasar el mouse */
+}
+
+/* Sección de recipes */
+.hero-recipe {
+    background: url('/src/images/recipes.png') no-repeat center center/cover;
+    height: 60vh;
+    /* La imagen será menos alta */
+    width: 100%;
+    /* Ancho completo, pero menos altura */
+    max-width: 1000%;
+    /* O limitar el ancho */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -15px;
+}
+
+/* Estilos para la sección de búsqueda en recipes.html */
+.search-recipes {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f5f5f5;
+    /* Un color de fondo suave */
+    margin-top: 30px;
+}
+
+.search-recipes h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    /* Color del texto principal */
+    margin-bottom: 10px;
+}
+
+.search-recipes h2 {
+    color: #32CD32;
+    font-size: 2.5rem;
+
+}
+
+.search-recipes p {
+    font-size: 1rem;
+    color: #666;
+    /* Color del subtítulo */
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    width: 300px;
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: white;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #555;
+    /* Cambiar el color del botón en hover */
+}
+
+/*carrusel*/
+.category-recipe h3 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.recipe-card {
+    min-width: 200px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#prev {
+    left: -40px;
+}
+
+#next {
+    right: -40px;
+}
+
+/* Estilos para el footer */
+footer {
+    margin-top: 50px;
+    background-color: #333;
+    /* Fondo oscuro */
+    color: white;
+    /* Texto blanco */
+    text-align: center;
+    /* Centrar el texto */
+    padding: 20px 0;
+    /* Espaciado arriba y abajo */
+    position: relative;
+    /* Si deseas que el footer sea estático */
+    bottom: 0;
+    width: 100%;
+    /* Asegurarse de que el footer ocupe todo el ancho */
+    font-size: 1.2rem;
+}
+
+footer p {
+    margin: 0;
+    /* Eliminar márgenes para que el texto esté centrado verticalmente */
+}

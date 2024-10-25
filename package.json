@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "parcel-dev": "parcel index.html",
+    "parcel-build": "parcel build index.html src/recipes/recipes.html src/recipes/recipe-details.html",
     "clean": "rimraf .cache dist"
   },
   "author": "Oscar Moncada",
   "dependencies": {
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "vite": "^5.4.10"
   },
   "devDependencies": {
     "rimraf": "^6.0.1"

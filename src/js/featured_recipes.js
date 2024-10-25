@@ -72,7 +72,7 @@ function displayRandomRecipes(recipes) {
                     <h3>${recipe.strMeal}</h3>
                     <div class="tooltip">
                         <p>Ingrediente principal: ${ingredient}</p>
-                        <p>Busca más detalles en el recetario</p>
+                        <p>Busca más detalles en nuestro catalogo</p>
                     </div> <!-- Tooltip que aparecerá al pasar el mouse -->
                 </div>
             `;

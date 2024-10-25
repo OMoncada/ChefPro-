@@ -19,7 +19,7 @@ function displayCategories(categories) {
         // Crear una tarjeta de categoría con un enlace a recipes.html
         const categoryCard = `
             <div class="category">
-                <a href="src/recipes/recipes.html?category=${category.strCategory}">
+                <a href="./src/recipes/recipes.html?category=${category.strCategory}">
                     <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
                     <p>${category.strCategory}</p>
                 </a>

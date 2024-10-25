@@ -2,12 +2,11 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 
 export default defineConfig({
-    root: "src/", // Carpeta raíz del proyecto
     build: {
-        outDir: "../dist", // Carpeta de salida para la compilación final
+        outDir: "./dist", // Ajusta esto si quieres que el build esté en otra carpeta
         rollupOptions: {
             input: {
-                main: resolve(__dirname, "src/index.html"),
+                main: resolve(__dirname, "index.html"), // Cambiado a la raíz del proyecto
                 recipes: resolve(__dirname, "src/recipes/recipes.html"),
                 recipeDetails: resolve(__dirname, "src/recipes/recipe-details.html"),
                 myList: resolve(__dirname, "src/list/my-list.html"),

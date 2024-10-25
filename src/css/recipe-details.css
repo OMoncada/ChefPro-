@@ -1,0 +1,266 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px 0 0;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+header .logo img {
+    width: 250px;
+    margin-left: 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    margin-right: 30px;
+}
+
+nav ul li {
+    margin-left: 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #32CD32;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Diseño para la sección de detalles */
+.recipe-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la imagen */
+.recipe-image {
+    flex: 2;
+}
+
+.recipe-image img {
+    width: 500px;
+    border-radius: 10px;
+    height: auto;
+    margin-left: 90px;
+    margin-top: 5px;
+}
+
+/* Estilo para los ingredientes */
+.recipe-ingredients {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 180px;
+}
+
+/* Ajuste para los títulos de Ingredientes y Preparación */
+.recipe-ingredients h3,
+.recipe-preparation h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    /* Texto en mayúsculas */
+    color: #32CD32;
+    /* Color verde */
+    margin-bottom: 10px;
+}
+
+.recipe-ingredients ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 1rem;
+}
+
+/* Estilo para la preparación */
+.recipe-preparation {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.recipe-preparation p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Estilo para el título de la receta */
+#recipe-title {
+    font-size: 2rem;
+    color: #333;
+    text-align: left;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    /* Si deseas que esté en mayúsculas */
+    color: #32CD32;
+    /* Manteniendo el color verde */
+}
+
+/* Botón "Agregar a mi lista" separado y con estilo */
+.add-to-list {
+    margin-top: 20px;
+    text-align: center;
+    /* Centrar el botón horizontalmente */
+}
+
+.add-to-list button {
+    background-color: #32CD32;
+    /* Botón verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-list button:hover {
+    background-color: #28a745;
+    /* Un tono más oscuro de verde al hacer hover */
+}
+
+/* Sección de comentarios */
+.recipe-comments {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-comments h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.recipe-comments label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.recipe-comments textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.submit-container {
+    text-align: center;
+}
+
+.submit-container button {
+    background-color: #32CD32;
+    /* Botón verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-container button:hover {
+    background-color: #28a745;
+    /* Un tono más oscuro de verde */
+}
+
+/* Lista de comentarios */
+#comments-list {
+    margin-top: 20px;
+}
+
+#comments-list h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.wishlist-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.wishlist-icon {
+    position: absolute;
+    top: -12px;
+    right: -20px;
+
+    /* Ajusta esta distancia según tu diseño */
+    display: inline-block;
+}
+
+.wishlist-count {
+    background-color: #fdd835;
+    /* Color amarillo */
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 20px;
+    /* Tamaño del círculo */
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Estilos para el footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-top: 70px;
+}
+
+footer p {
+    margin: 0;
+}

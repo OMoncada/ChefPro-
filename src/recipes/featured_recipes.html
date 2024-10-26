@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChefPro - Recetario</title>
+    <title>ChefPro - Recipes</title>
     <link rel="stylesheet" href="/src/css/featured_recipes.css">
 </head>
 
@@ -16,23 +16,51 @@
         </div>
         <nav>
             <ul>
-                <li><a href="/index.html">Agenda tu demo</a></li>
-                <li><a href="">Recetario</a></li>
-                <li><a href="/src/list/my-list.html">Lista</a></li>
-                <li><a href="/src/contact/contact.html">Contacto</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="">Recipes</a></li>
+                <li><a href="/src/list/my-list.html">List</a></li>
+                <li><a href="/src/contact/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>Recetas destacadas</h2>
-        <div class="random-grid-container" id="random-grid">
-            <!-- Aquí se cargarán dinámicamente las recetas en una cuadrícula -->
-        </div>
+        <section class="hero-img">
+        </section>
+
     </main>
+    <section class="categories">
+        <h5>Our Categories</h5>
+        <div class="category-carousel-container">
+            <button id="category-prev" class="category-carousel-button">❮</button>
+            <div id="category-carousel" class="category-carousel">
+                <div class="category-container">
+                    <!-- Aquí se cargarán dinámicamente las categorías desde la API -->
+                </div>
+            </div>
+            <button id="category-next" class="category-carousel-button">❯</button>
+        </div>
+    </section>
+
+    <section class="proposito-section">
+        <div class="proposito-container">
+            <div class="proposito-image">
+                <img src="/src/images/cook.jpg" alt=" imagen destacada">
+            </div>
+            <div class="proposito-content">
+                <h2>Explore recipes from around the world.</h2>
+                <p>
+                    At ChefPro, we are dedicated to bringing unique recipes from various cultures to your kitchen. Our
+                    recipe book is constantly growing, with new dishes selected and adapted so that you can replicate
+                    them easily and in detail. From appetizers to desserts, discover how ChefPro can transform your
+                    culinary experience, helping you surprise and delight your loved ones with incredible results.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>
+        <p>&copy; 2024 ChefPro. All rights reserved.</p>
     </footer>
 
     <!-- Archivo JS para manejar los filtros y cargar las recetas -->

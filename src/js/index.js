@@ -42,12 +42,12 @@ function fetchMainIngredient(recipeId) {
         .then(response => response.json())
         .then(data => {
             const recipe = data.meals[0];
-            const ingredient = recipe.strIngredient1 || 'Ingrediente principal no disponible';
+            const ingredient = recipe.strIngredient1 || 'Main ingredient not available';
             return ingredient;
         })
         .catch(error => {
-            console.error(`Error al obtener el ingrediente principal para la receta ${recipeId}:`, error);
-            return 'Ingrediente principal no disponible'; // Devuelve un mensaje si no se puede obtener
+            console.error(`Error getting main ingredient for recipe ${recipeId}:`, error);
+            return 'Main ingredient not available'; // Devuelve un mensaje si no se puede obtener
         });
 }
 
@@ -57,7 +57,7 @@ function displayRandomRecipes(recipes) {
     randomGridContainer.innerHTML = '';
 
     if (recipes.length === 0) {
-        randomGridContainer.innerHTML = '<p>No se encontraron recetas.</p>';
+        randomGridContainer.innerHTML = '<p>No recipes found.</p>';
         return;
     }
 
@@ -68,8 +68,8 @@ function displayRandomRecipes(recipes) {
                     <img src="${recipe.strMealThumb}" alt="${recipe.strMeal}">
                     <h3>${recipe.strMeal}</h3>
                     <div class="tooltip">
-                        <p>Ingrediente principal: ${ingredient}</p>
-                        <p>Busca más detalles en nuestro catálogo</p>
+                        <p>Main ingredient: ${ingredient}</p>
+                        <p>Find more details in our catalog</p>
                     </div>
                 </div>
             `;

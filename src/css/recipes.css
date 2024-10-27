@@ -47,6 +47,24 @@ nav ul li a:hover {
     /* Cambia al verde de la página al pasar el mouse */
 }
 
+/* Estilos del botón de hamburguesa */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #333;
+    transition: 0.3s;
+}
+
 /* Sección de recipes */
 .hero-recipes {
     background: url('/src/images/recipes.png') no-repeat center center/cover;
@@ -346,27 +364,6 @@ nav ul li a:hover {
     /* Asignar una altura consistente para cada tarjeta */
 }
 
-/* Responsividad para pantallas pequeñas */
-@media (max-width: 768px) {
-    .content-container {
-        flex-direction: column;
-        /* Apila el filtro y el carrusel en pantallas pequeñas */
-    }
-
-    .filters {
-        max-width: 100%;
-        /* Asegura que el filtro ocupe todo el ancho en pantallas pequeñas */
-    }
-
-    .carousel-container {
-        max-width: 100%;
-    }
-
-    .carousel .recipe-card {
-        min-width: 100%;
-        /* Muestra solo una imagen a la vez en pantallas pequeñas */
-    }
-}
 
 /* Estilos para el footer */
 footer {
@@ -383,4 +380,184 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* Adaptaciones específicas para móviles */
+@media screen and (max-width: 768px) {
+
+    /* Encabezado */
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    /* Botón de hamburguesa */
+    .hamburger {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-right: 20px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #333;
+        transition: 0.3s;
+    }
+
+    /* Animación para el botón de hamburguesa al abrirse */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menú desplegable que se muestra debajo del header */
+    /* Menú desplegable que se muestra debajo del header */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px 0;
+        list-style: none;
+        display: none;
+        /* Oculto por defecto */
+        background-color: #32CD32;
+        /* Fondo verde */
+        width: 95vw;
+        /* Ocupa todo el ancho de la ventana */
+        height: 35vh;
+    }
+
+    nav ul.open {
+        display: flex;
+        /* Muestra el menú */
+    }
+
+    nav ul.show {
+        display: flex;
+        /* Mostramos el menú cuando se hace clic */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    nav ul,
+    nav ul li,
+    nav ul li a {
+        box-shadow: none;
+        /* Eliminar sombra */
+        border: none;
+        /* Eliminar bordes */
+    }
+
+    nav ul li a:hover {
+        color: black;
+        /* Cambia al verde al pasar el mouse */
+    }
+
+    /* Ajustes de estilo para otros elementos en vista móvil */
+    .demo-section {
+        height: auto;
+        padding: 20px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-bar input {
+        width: 100%;
+        /* Ocupa el ancho completo en móviles */
+    }
+
+    .search-bar button {
+        width: 100%;
+        /* Ocupa el ancho completo en móviles */
+    }
+
+    /* Centrar y ajustar la sección de filtros */
+    .filters {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Centrar la receta y mostrar solo una a la vez */
+    .recipe-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
+        /* Limita el tamaño de la tarjeta en el centro */
+        margin: 0 auto;
+    }
+
+    /* Ajustes de la imagen en la receta */
+    .recipe-card img {
+        width: 140%;
+        max-width: 250px;
+        /* Tamaño máximo de la imagen */
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    /* Estilos para los botones de navegación */
+    .nav-btn {
+        background-color: #ccc;
+        color: #333;
+        border: none;
+        padding: 10px 15px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 10px 5px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-btn:hover {
+        background-color: #aaa;
+    }
+
+    /* Posiciona los botones de navegación en el centro, debajo de la receta */
+    #prev-recipe,
+    #next-recipe {
+        display: inline-flex;
+        margin: 10px 5px;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
 }

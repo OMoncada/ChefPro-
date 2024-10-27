@@ -47,6 +47,57 @@ main {
     padding: 20px;
 }
 
+/* Estilos del botón de hamburguesa */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+/* Contenedor de las recetas */
+#wishlist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilo del enlace de la lista de deseos en el encabezado */
+.wishlist-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Posiciona el icono amarillo del contador */
+.wishlist-icon {
+    background-color: #fdd835;
+    width: 20px;
+    /* Tamaño del círculo */
+    height: 20px;
+    position: absolute;
+    top: -12px;
+    right: -20px;
+    /* Ajusta esta distancia según tu diseño */
+    display: inline-block;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
 /* Diseño para la sección de detalles */
 .recipe-details {
     display: flex;
@@ -216,38 +267,6 @@ main {
     line-height: 1.4;
 }
 
-.wishlist-link {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.wishlist-icon {
-    position: absolute;
-    top: -12px;
-    right: -20px;
-
-    /* Ajusta esta distancia según tu diseño */
-    display: inline-block;
-}
-
-.wishlist-count {
-    background-color: #fdd835;
-    /* Color amarillo */
-    color: black;
-    font-size: 1rem;
-    font-weight: bold;
-    width: 20px;
-    /* Tamaño del círculo */
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-
 /* Estilos para el footer */
 footer {
     background-color: #333;
@@ -263,4 +282,213 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Encabezado */
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    /* Botón de hamburguesa */
+    .hamburger {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-right: 20px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #333;
+        transition: 0.3s;
+    }
+
+    /* Animación para el botón de hamburguesa al abrirse */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menú desplegable que se muestra debajo del header */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px 0;
+        list-style: none;
+        display: none;
+        /* Oculto por defecto */
+        background-color: #32CD32;
+        /* Fondo verde */
+        width: 95vw;
+        /* Ocupa todo el ancho de la ventana */
+        height: 35vh;
+    }
+
+    nav ul.open {
+        display: flex;
+        /* Muestra el menú */
+    }
+
+    nav ul.show {
+        display: flex;
+        /* Mostramos el menú cuando se hace clic */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    nav ul,
+    nav ul li,
+    nav ul li a {
+        box-shadow: none;
+        /* Eliminar sombra */
+        border: none;
+        /* Eliminar bordes */
+    }
+
+
+    nav ul li a:hover {
+        color: black;
+        /* Cambia al verde al pasar el mouse */
+    }
+
+    /* Estilos para centrar la sección de detalles de recetas en vista móvil */
+    .recipe-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 350px;
+        text-align: center;
+        margin-left: -10px;
+        /* Centra todo el contenido */
+    }
+
+    /* Centrado y ajuste de la imagen de la receta */
+    .recipe-image img {
+        width: 80%;
+        max-width: 300px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        margin-left: 50px;
+    }
+
+    /* Título de la receta */
+    #recipe-title {
+        font-size: 2rem;
+        color: #32CD32;
+        font-weight: bold;
+        margin-bottom: 15px;
+        word-wrap: break-word;
+        /* Ajusta el texto dentro del ancho */
+        text-align: center;
+    }
+
+    /* Ingredientes de la receta */
+    .recipe-ingredients {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: 230px;
+    }
+
+    .recipe-ingredients h3 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .recipe-ingredients ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+    }
+
+    .recipe-ingredients ul li {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 5px;
+        word-wrap: break-word;
+        /* Asegura que las palabras largas se ajusten */
+    }
+
+    /* Botón "Agregar a mi lista" */
+    .add-to-list {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .add-to-list button {
+        width: 80%;
+        padding: 12px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #32CD32;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+
+    .add-to-list button:hover {
+        background-color: #28a745;
+    }
+
+    /* Preparación de la receta */
+    .recipe-preparation {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-left: -15px;
+    }
+
+    .recipe-preparation h3 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .recipe-preparation p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.5;
+        word-wrap: break-word;
+        text-align: center;
+        /* Centra el texto */
+    }
+
+    footer {
+        font-size: 1rem;
+    }
 }

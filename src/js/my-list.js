@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     wishlistContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar las recetas
 
     if (wishlist.length === 0) {
-        wishlistContainer.innerHTML = '<p>You have not added any recipes to your list.</p > ';
+        wishlistContainer.innerHTML = '<p>You have not added any recipes to your list.</p>';
     } else {
         wishlist.forEach((recipe, index) => {
             const recipeCard = document.createElement("div");
@@ -42,12 +42,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // Función para eliminar una receta de la lista
+    // Función para eliminar una receta de la lista con animación de desvanecimiento
     window.deleteRecipe = function (index) {
-        wishlist.splice(index, 1); // Eliminar receta de la lista
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-        updateWishlistCount(); // Actualizar el contador después de eliminar
-        renderWishlist(); // Volver a renderizar la lista después de eliminar
+        const recipeCard = document.querySelectorAll(".recipe-card")[index];
+
+        // Agregar la clase de desvanecimiento
+        recipeCard.classList.add("fade-out");
+
+        // Esperar el final de la animación antes de eliminar el elemento
+        setTimeout(() => {
+            wishlist.splice(index, 1); // Eliminar receta de la lista
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+            updateWishlistCount(); // Actualizar el contador después de eliminar
+            renderWishlist(); // Volver a renderizar la lista después de eliminar
+        }, 500); // 500ms coincide con la duración de la animación CSS
     };
 
     // Función para volver a renderizar la lista después de eliminar una receta

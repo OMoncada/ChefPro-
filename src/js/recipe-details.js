@@ -64,17 +64,28 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!existingRecipe) {
             wishlist.push(recipe);
             localStorage.setItem("wishlist", JSON.stringify(wishlist));
-            updateWishlistCount(); // Actualizar el número de recetas en "Mi Lista"
+            updateWishlistCount(); // Actualizar el número de recetas en "Mi Lista" con animación
             alert('Recipe added to your list!');
         } else {
             alert('This recipe is already on your list.');
         }
     }
 
-    // Función para actualizar el número en el círculo amarillo del encabezado
+    // Función para actualizar el número en el círculo amarillo del encabezado con animación en el contenedor
     function updateWishlistCount() {
         const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        const wishlistIconElement = document.querySelector(".wishlist-icon");
+
+        // Actualiza el número de la lista
         document.getElementById("wishlist-count").textContent = wishlist.length;
+
+        // Añade la clase 'bounce-container' para activar la animación en el contenedor completo
+        wishlistIconElement.classList.add("bounce-container");
+
+        // Remueve la clase después de la animación para que pueda repetirse
+        setTimeout(() => {
+            wishlistIconElement.classList.remove("bounce-container");
+        }, 500); // Duración de la animación en milisegundos
     }
 
     // Llamar a la función para actualizar el número al cargar la página

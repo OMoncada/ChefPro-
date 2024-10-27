@@ -45,14 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                     });
                 } else {
-                    console.error("Receta no encontrada");
+                    console.error("Recipe not found");
                 }
             })
             .catch(error => {
-                console.error("Error al cargar los datos de la receta:", error);
+                console.error("Error loading recipe data:", error);
             });
     } else {
-        console.error("ID de receta no proporcionado en la URL");
+        console.error("Recipe ID not provided in URL");
     }
 
     // Función para añadir receta a "Mi lista"
@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
             wishlist.push(recipe);
             localStorage.setItem("wishlist", JSON.stringify(wishlist));
             updateWishlistCount(); // Actualizar el número de recetas en "Mi Lista"
-            alert('¡Receta añadida a tu lista!');
+            alert('Recipe added to your list!');
         } else {
-            alert('Esta receta ya está en tu lista.');
+            alert('This recipe is already on your list.');
         }
     }
 
@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
         commentDiv.classList.add("comment");
 
         // Mostrar el comentario junto con la fecha y hora
-        commentDiv.innerHTML = `<strong>Comentario:</strong> ${commentData.text} <br>
-                                <small><em>Fecha: ${commentData.date}, Hora: ${commentData.time}</em></small>`;
+        commentDiv.innerHTML = `<strong>Comment:</strong> ${commentData.text} <br>
+                                <small><em>Date: ${commentData.date}, hour: ${commentData.time}</em></small>`;
         commentsList.appendChild(commentDiv);
     }
 });

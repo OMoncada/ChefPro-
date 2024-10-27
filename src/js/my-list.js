@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="recipe-info">
                     <h3>${recipe.strMeal}</h3>
-                    <button class="print-btn" onclick="printRecipe('${recipe.idMeal}')">Imprimir</button>
+                    <button class="print-btn" onclick="printRecipe('${recipe.idMeal}')">Print</button>
                 </div>
                 <button class="delete-btn" onclick="deleteRecipe(${index})">X</button>
             `;
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderWishlist() {
         wishlistContainer.innerHTML = '';
         if (wishlist.length === 0) {
-            wishlistContainer.innerHTML = '<p>No has agregado ninguna receta a tu lista.</p>';
+            wishlistContainer.innerHTML = '<p>You have not added any recipes to your list.</p>';
         } else {
             wishlist.forEach((recipe, index) => {
                 const recipeCard = document.createElement("div");
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="recipe-info">
                         <h3>${recipe.strMeal}</h3>
-                        <button class="print-btn" onclick="printRecipe('${recipe.idMeal}')">Imprimir</button>
+                        <button class="print-btn" onclick="printRecipe('${recipe.idMeal}')">Print</button>
                     </div>
                     <button class="delete-btn" onclick="deleteRecipe(${index})">X</button>
                 `;

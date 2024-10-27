@@ -6,25 +6,6 @@ body {
     background-color: white;
 }
 
-.alert-header {
-    background-color: #32CD32;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    margin-top: -10px;
-}
-
-.alert-header .left-alert p {
-    margin: 0;
-    font-size: 22px;
-}
-
-.alert-header .right-alert a img {
-    width: 20px;
-    margin-left: 10px;
-}
-
 header {
     display: flex;
     justify-content: space-between;
@@ -64,6 +45,24 @@ nav ul li a {
 nav ul li a:hover {
     color: #32CD32;
     /* Cambia al verde de la página al pasar el mouse */
+}
+
+/* Estilos del botón de hamburguesa */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #333;
+    transition: 0.3s;
 }
 
 /* Sección de la demo */
@@ -209,25 +208,169 @@ nav ul li a:hover {
     margin-top: 5px;
 }
 
+/* Estilos del modal de confirmación */
+.modal {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.close-contact-modal {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-contact-modal:hover,
+.close-contact-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 /* Estilos para el footer */
 footer {
     background-color: #333;
-    /* Fondo oscuro */
     color: white;
-    /* Texto blanco */
     text-align: center;
-    /* Centrar el texto */
     padding: 20px 0;
-    /* Espaciado arriba y abajo */
     position: relative;
-    /* Si deseas que el footer sea estático */
     bottom: 0;
     width: 100%;
-    /* Asegurarse de que el footer ocupe todo el ancho */
-    font-size: 14px;
+    font-size: 1.2rem;
+    margin-top: 10px;
 }
 
 footer p {
     margin: 0;
-    /* Eliminar márgenes para que el texto esté centrado verticalmente */
+}
+
+
+/* Adaptaciones específicas para móviles */
+@media screen and (max-width: 768px) {
+
+    /* Encabezado */
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    /* Botón de hamburguesa */
+    .hamburger {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-right: 20px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #333;
+        transition: 0.3s;
+    }
+
+    /* Animación para el botón de hamburguesa al abrirse */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menú desplegable que se muestra debajo del header */
+    /* Menú desplegable que se muestra debajo del header */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px 0;
+        list-style: none;
+        display: none;
+        /* Oculto por defecto */
+        background-color: #32CD32;
+        /* Fondo verde */
+        width: 95vw;
+        /* Ocupa todo el ancho de la ventana */
+        height: 35vh;
+    }
+
+    nav ul.open {
+        display: flex;
+        /* Muestra el menú */
+    }
+
+    nav ul.show {
+        display: flex;
+        /* Mostramos el menú cuando se hace clic */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    nav ul,
+    nav ul li,
+    nav ul li a {
+        box-shadow: none;
+        /* Eliminar sombra */
+        border: none;
+        /* Eliminar bordes */
+    }
+
+
+    nav ul li a:hover {
+        color: black;
+        /* Cambia al verde al pasar el mouse */
+    }
+
+    /* Ajustes de estilo para otros elementos en vista móvil */
+    .demo-section {
+        height: auto;
+        padding: 20px;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
 }

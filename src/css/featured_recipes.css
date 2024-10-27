@@ -47,6 +47,24 @@ nav ul li a:hover {
     /* Cambia al verde de la página al pasar el mouse */
 }
 
+/* Estilos del botón de hamburguesa */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #333;
+    transition: 0.3s;
+}
+
 .hero-img {
     background: url('/src/images/recipe.png') no-repeat center center/cover;
     height: 60vh;
@@ -229,4 +247,142 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Encabezado */
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    /* Botón de hamburguesa */
+    .hamburger {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-right: 20px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #333;
+        transition: 0.3s;
+    }
+
+    /* Animación para el botón de hamburguesa al abrirse */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menú desplegable que se muestra debajo del header */
+    /* Menú desplegable que se muestra debajo del header */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px 0;
+        list-style: none;
+        display: none;
+        /* Oculto por defecto */
+        background-color: #32CD32;
+        /* Fondo verde */
+        width: 95vw;
+        /* Ocupa todo el ancho de la ventana */
+        height: 35vh;
+    }
+
+    nav ul.open {
+        display: flex;
+        /* Muestra el menú */
+    }
+
+    nav ul.show {
+        display: flex;
+        /* Mostramos el menú cuando se hace clic */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    nav ul,
+    nav ul li,
+    nav ul li a {
+        box-shadow: none;
+        /* Eliminar sombra */
+        border: none;
+        /* Eliminar bordes */
+    }
+
+    nav ul li a:hover {
+        color: black;
+        /* Cambia al verde al pasar el mouse */
+    }
+
+    .proposito-container {
+        flex-direction: column;
+        /* Cambia la disposición a vertical */
+        text-align: center;
+        /* Centra el texto */
+        gap: 20px;
+        /* Ajusta el espacio entre los elementos */
+        padding: 0 20px;
+        /* Añade un poco de padding horizontal */
+    }
+
+    .proposito-image {
+        display: flex;
+        justify-content: center;
+        /* Centra la imagen horizontalmente */
+        width: 100%;
+        /* Haz que el contenedor ocupe el ancho completo */
+    }
+
+    .proposito-image img {
+        width: 80%;
+        /* Ajusta el ancho de la imagen en móviles */
+        max-width: 300px;
+        /* Limita el ancho máximo de la imagen */
+        border-radius: 10px;
+    }
+
+    .proposito-content h2 {
+        font-size: 2rem;
+        /* Ajusta el tamaño del título en móviles */
+    }
+
+    .proposito-content p {
+        font-size: 1rem;
+        /* Ajusta el tamaño del texto en móviles */
+        line-height: 1.5;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
 }

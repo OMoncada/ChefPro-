@@ -15,7 +15,12 @@
         <div class="logo">
             <img src="/src/images/logo.png" alt="ChefPro Logo">
         </div>
-        <nav>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="src/recipes/featured_recipes.html">Recipes</a></li>
@@ -30,13 +35,16 @@
             <div class="form-container">
                 <h2>Interested in learning more about ChefPro?</h2>
                 <p>Schedule a free, personal, online demonstration.</p>
-                <form>
-                    <!-- Usamos placeholders en lugar de etiquetas -->
-                    <input type="email" id="email" name="email" placeholder="Correo electrónico *" required>
-                    <input type="text" id="name" name="name" placeholder="Nombre *" required>
-                    <input type="tel" id="phone" name="phone" placeholder="Teléfono *" required>
-                    <input type="text" id="city" name="city" placeholder="Ciudad *" required>
-                    <button type="submit">ENVIAR</button>
+                <form id="contactForm">
+                    <input type="email" id="email" name="email" placeholder="Email *" required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+                    <input type="text" id="name" name="name" placeholder="Name *" required pattern="[A-Za-z\s]+"
+                        title="Only letters are allowed">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone *" required pattern="\d+"
+                        title="Only numbers are allowed">
+                    <input type="text" id="city" name="city" placeholder="City *" required pattern="[A-Za-z\s]+"
+                        title="Only letters are allowed">
+                    <button type="submit">SEND</button>
                 </form>
             </div>
         </section>
@@ -70,6 +78,25 @@
     </footer>
 
     <script src="src/js/index.js"></script>
+
+    <!-- Modal de confirmación -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Thank you! You will receive an email to the provided address to schedule your day and time.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Bienvenida -->
+    <div id="welcomeModal" class="welcome-modal">
+        <div class="welcome-modal-content">
+            <span class="close-welcome">&times;</span>
+            <h2>Welcome to ChefPro!</h2>
+            <p>Explore our catalog of recipes so you can have fun with your family. For any questions, no guys.
+                in contacting us.</p>
+            <button id="contactButton" class="contact-btn">Contact us</button>
+        </div>
+    </div>
 
 </body>
 

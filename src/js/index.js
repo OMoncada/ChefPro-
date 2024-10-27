@@ -29,7 +29,6 @@ Promise.all([
 
 // Función para seleccionar aleatoriamente 10 recetas
 function getRandomRecipes(recipes, num) {
-    // Asegurarse de que haya al menos 'num' recetas antes de intentar seleccionarlas
     if (recipes.length <= num) {
         return recipes; // Si hay menos de 'num' recetas, mostrar todas
     }
@@ -43,7 +42,6 @@ function fetchMainIngredient(recipeId) {
         .then(response => response.json())
         .then(data => {
             const recipe = data.meals[0];
-            // Devolvemos el primer ingrediente que no sea nulo
             const ingredient = recipe.strIngredient1 || 'Ingrediente principal no disponible';
             return ingredient;
         })
@@ -55,8 +53,8 @@ function fetchMainIngredient(recipeId) {
 
 // Función para mostrar las recetas aleatorias en una cuadrícula
 function displayRandomRecipes(recipes) {
-    const randomGridContainer = document.getElementById('random-grid'); // Cambiamos 'carousel' a 'random-grid'
-    randomGridContainer.innerHTML = ''; // Limpiar el contenedor antes de añadir nuevas recetas
+    const randomGridContainer = document.getElementById('random-grid');
+    randomGridContainer.innerHTML = '';
 
     if (recipes.length === 0) {
         randomGridContainer.innerHTML = '<p>No se encontraron recetas.</p>';
@@ -64,7 +62,6 @@ function displayRandomRecipes(recipes) {
     }
 
     recipes.forEach(recipe => {
-        // Aquí obtenemos el ingrediente principal de cada receta
         fetchMainIngredient(recipe.idMeal).then(ingredient => {
             const recipeCard = `
                 <div class="recipe-card">
@@ -72,8 +69,8 @@ function displayRandomRecipes(recipes) {
                     <h3>${recipe.strMeal}</h3>
                     <div class="tooltip">
                         <p>Ingrediente principal: ${ingredient}</p>
-                        <p>Busca más detalles en nuestro catalogo</p>
-                    </div> <!-- Tooltip que aparecerá al pasar el mouse -->
+                        <p>Busca más detalles en nuestro catálogo</p>
+                    </div>
                 </div>
             `;
             randomGridContainer.innerHTML += recipeCard;
@@ -85,7 +82,7 @@ function displayRandomRecipes(recipes) {
         if (event.target.closest('.recipe-card')) {
             const card = event.target.closest('.recipe-card');
             const tooltip = card.querySelector('.tooltip');
-            tooltip.style.display = 'block'; // Mostrar el tooltip al hacer hover
+            tooltip.style.display = 'block';
         }
     });
 
@@ -93,7 +90,64 @@ function displayRandomRecipes(recipes) {
         if (event.target.closest('.recipe-card')) {
             const card = event.target.closest('.recipe-card');
             const tooltip = card.querySelector('.tooltip');
-            tooltip.style.display = 'none'; // Ocultar el tooltip cuando se quita el hover
+            tooltip.style.display = 'none';
         }
     });
 }
+
+// Selección de elementos del DOM
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+// Alternar el menú desplegable al hacer clic en el botón de hamburguesa
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Código para el modal de confirmación del formulario
+    const modal = document.getElementById('confirmationModal');
+    const closeModalButton = document.querySelector('.close');
+
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        modal.style.display = 'block';
+        event.target.reset();
+    });
+
+    closeModalButton.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Código para el modal de bienvenida
+    const welcomeModal = document.getElementById('welcomeModal');
+    const closeWelcomeButton = document.querySelector('.close-welcome');
+    const contactButton = document.getElementById('contactButton');
+
+    // Mostrar el modal de bienvenida cuando se carga la página
+    welcomeModal.style.display = 'block';
+
+    // Cerrar el modal de bienvenida al hacer clic en la "X"
+    closeWelcomeButton.addEventListener('click', () => {
+        welcomeModal.style.display = 'none';
+    });
+
+    // Cerrar el modal de bienvenida si el usuario hace clic fuera del contenido del modal
+    window.addEventListener('click', (event) => {
+        if (event.target === welcomeModal) {
+            welcomeModal.style.display = 'none';
+        }
+    });
+
+    // Redirigir al usuario a la página de contacto al hacer clic en el botón de contacto
+    contactButton.addEventListener('click', () => {
+        window.location.href = '/src/contact/contact.html';
+    });
+});

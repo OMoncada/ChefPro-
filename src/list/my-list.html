@@ -14,32 +14,37 @@
         <div class="logo">
             <img src="/src/images/logo.png" alt="ChefPro Logo">
         </div>
-        <nav>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
             <ul>
-                <li><a href="/index.html">Agenda tu demo</a></li>
-                <li><a href="/src/recipes/featured_recipes.html">Recetario</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/src/recipes/featured_recipes.html">Recipes</a></li>
                 <li>
-                    <a href="/src/list/my-list.html" class="wishlist-link">
-                        Lista
+                    <a href="·" class="wishlist-link">
+                        List
                         <div class="wishlist-icon">
                             <span id="wishlist-count">0</span>
                         </div>
                     </a>
                 </li>
-                <li><a href="/src/contact/contact.html">Contacto</a></li>
+                <li><a href="/src/contact/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>Mis recetas guardadas</h2>
+        <h2>My saved recipes</h2>
         <div id="wishlist-container">
             <!-- Aquí se agregarán las recetas de forma dinámica -->
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>
+        <p>&copy; 2024 ChefPro. All rights reserved.</p>
     </footer>
 
     <script src="/src/js/my-list.js"></script>

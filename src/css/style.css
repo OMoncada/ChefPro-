@@ -521,7 +521,6 @@ footer p {
     }
 
     /* Menú desplegable que se muestra debajo del header */
-    /* Menú desplegable que se muestra debajo del header */
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -534,7 +533,7 @@ footer p {
         /* Fondo verde */
         width: 95vw;
         /* Ocupa todo el ancho de la ventana */
-        height: 35vh;
+        height: 23vh;
     }
 
     nav ul.open {

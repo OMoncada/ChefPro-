@@ -357,7 +357,7 @@ footer p {
         /* Fondo verde */
         width: 95vw;
         /* Ocupa todo el ancho de la ventana */
-        height: 35vh;
+        height: 23vh;
     }
 
     nav ul.open {
@@ -483,27 +483,34 @@ footer p {
         background-color: #28a745;
     }
 
-    /* Preparación de la receta */
+    /* Contenedor de preparación */
     .recipe-preparation {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 20px;
-        margin-left: -15px;
+        width: 90%;
+        /* Ajusta el ancho para que ocupe menos espacio en la pantalla */
+        margin: 0 auto;
+        /* Centra el contenedor */
+        padding: 15px;
+        /* Reduce el padding para hacer el cuadro más compacto */
+        font-size: 0.9rem;
+        /* Ajusta el tamaño del texto en móvil */
+        line-height: 1.5;
+        /* Asegura que el texto esté bien separado */
     }
 
     .recipe-preparation h3 {
         font-size: 1.2rem;
-        color: #333;
+        /* Tamaño de título más pequeño para móvil */
+        text-align: center;
+        /* Centra el título */
         margin-bottom: 10px;
+        /* Espacio debajo del título */
     }
 
     .recipe-preparation p {
-        font-size: 1rem;
-        color: #555;
-        line-height: 1.5;
-        word-wrap: break-word;
-        text-align: center;
-        /* Centra el texto */
+        text-align: justify;
+        /* Justifica el texto para una apariencia más ordenada */
+        margin: 0;
+        /* Elimina márgenes adicionales */
     }
 
     footer {

@@ -439,7 +439,7 @@ footer p {
         /* Fondo verde */
         width: 95vw;
         /* Ocupa todo el ancho de la ventana */
-        height: 35vh;
+        height: 23vh;
     }
 
     nav ul.open {
@@ -484,19 +484,43 @@ footer p {
         padding: 20px;
     }
 
+    /* Contenedor del buscador */
+    .search-recipes {
+        padding: 15px;
+        margin: 0 auto;
+        width: 90%;
+        /* Asegura que esté dentro de los márgenes */
+        text-align: center;
+    }
+
+    /* Barra de búsqueda para que se ajuste en móvil */
     .search-bar {
+        display: flex;
         flex-direction: column;
+        /* Coloca la barra y el botón en columna */
+        align-items: center;
         gap: 10px;
+        /* Espacio entre el input y el botón */
+        width: 100%;
+        /* Ocupa el ancho disponible */
     }
 
     .search-bar input {
         width: 100%;
-        /* Ocupa el ancho completo en móviles */
+        /* Asegura que el input no sobresalga */
+        max-width: 280px;
+        /* Limita el tamaño en móvil */
+        padding: 10px;
+        font-size: 1rem;
+        box-sizing: border-box;
     }
 
     .search-bar button {
         width: 100%;
-        /* Ocupa el ancho completo en móviles */
+        /* El botón también se ajusta al ancho del contenedor */
+        max-width: 150px;
+        padding: 10px;
+        font-size: 1rem;
     }
 
     /* Centrar y ajustar la sección de filtros */

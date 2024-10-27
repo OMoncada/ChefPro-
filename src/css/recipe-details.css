@@ -267,6 +267,24 @@ main {
     line-height: 1.4;
 }
 
+/* Define la animación de salto para el contenedor completo */
+@keyframes bounce-container {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Clase para activar la animación de salto */
+.bounce-container {
+    animation: bounce-container 0.5s ease;
+}
+
 /* Estilos para el footer */
 footer {
     background-color: #333;

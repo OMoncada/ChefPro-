@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     wishlistContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar las recetas
 
     if (wishlist.length === 0) {
-        wishlistContainer.innerHTML = '<p>No has agregado ninguna receta a tu lista.</p>';
+        wishlistContainer.innerHTML = '<p>You have not added any recipes to your list.</p > ';
     } else {
         wishlist.forEach((recipe, index) => {
             const recipeCard = document.createElement("div");
@@ -82,4 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const wishlistCountElement = document.getElementById("wishlist-count");
         wishlistCountElement.textContent = wishlist.length; // Mostrar el número sin paréntesis
     }
+});
+
+// Selección de elementos del DOM
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+// Alternar el menú desplegable al hacer clic en el botón de hamburguesa
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');
 });

@@ -47,9 +47,43 @@ nav ul li a:hover {
     /* Cambia al verde de la página al pasar el mouse */
 }
 
+/* Estilos del botón de hamburguesa */
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+.hero-img {
+    background: url('/src/images/recipe.png') no-repeat center center/cover;
+    height: 60vh;
+    /* La imagen será menos alta */
+    width: 100%;
+    /* Ancho completo, pero menos altura */
+    max-width: 1000%;
+    /* O limitar el ancho */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -15px;
+}
+
 /* Estilo para la cuadrícula de recetas */
 
-main h2 {
+main h3 {
     text-align: center;
     /* Centra el texto */
     font-size: 2.5rem;
@@ -60,88 +94,142 @@ main h2 {
     /* Añade espacio arriba y abajo del h2 */
 }
 
-
-/* Diseño del contenedor de la cuadrícula */
-.random-grid-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* 5 columnas */
-    grid-template-rows: repeat(2, 1fr);
-    /* 2 filas */
+/* Diseño de cuadrícula para organizar las categorías */
+.category-container {
+    display: flex;
+    flex-wrap: nowrap;
     gap: 20px;
-    /* Espacio entre las imágenes */
-    justify-content: center;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    /* Centrar la cuadrícula */
+    overflow-x: scroll;
 }
 
-/* Estilos para las tarjetas de receta */
-.recipe-card {
+/* Estilos para cada tarjeta de categoría */
+.categories h5 {
+    font-size: 40px;
+    /* Ajusta el tamaño de la fuente */
+    font-weight: bold;
+    /* Hace el texto más grueso */
+    color: #333;
+    /* Cambia el color del texto */
+    text-align: center;
+    /* Centra el texto */
+    margin-bottom: 50px;
+    /* Espacio debajo del título */
+    margin-top: 50px;
+}
+
+.category {
     background-color: #f9f9f9;
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    min-width: 200px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    /* Esto permitirá posicionar elementos hijos de forma absoluta */
-    overflow: hidden;
-    /* Para que el tooltip no sobresalga de los límites */
 }
 
-.recipe-card img {
+.category img {
     width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
 }
 
-.recipe-card h3 {
+.category p {
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
 }
 
-.recipe-card .tooltip {
+.category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Carrusel de categorías */
+.category-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.category-carousel {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.category-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Botones de navegación del carrusel */
+.category-carousel-button {
     position: absolute;
     top: 50%;
-    /* Inicia desde la mitad del contenedor */
-    left: 0;
-    width: 100%;
-    height: 50%;
-    /* Ajusta a la mitad de la altura del contenedor */
-    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
     padding: 10px;
-    font-size: 0.9rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+}
+
+#category-prev {
+    left: 10px;
+}
+
+#category-next {
+    right: 10px;
+}
+
+/* Sección del propósito */
+.proposito-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.proposito-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.proposito-image img {
+    margin-left: 20px;
+    width: 600px;
+    height: auto;
     border-radius: 10px;
-    z-index: 5;
-
-    /* Nuevas propiedades para manejar el ajuste del texto */
-    overflow: hidden;
-    /* Evita que el texto sobresalga del contenedor */
-    text-overflow: ellipsis;
-    /* Muestra puntos suspensivos si el texto es muy largo */
-    word-wrap: break-word;
-    /* Divide las palabras largas que no caben */
-    box-sizing: border-box;
-    /* Asegura que el padding esté dentro del contenedor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.recipe-card:hover .tooltip {
-    opacity: 1;
+.proposito-content {
+    max-width: 600px;
 }
 
+.proposito-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.proposito-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #666;
+}
 
 
 /* Estilos para el footer */
@@ -159,4 +247,142 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Encabezado */
+    header {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    /* Botón de hamburguesa */
+    .hamburger {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        align-self: flex-end;
+        margin-right: 20px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #333;
+        transition: 0.3s;
+    }
+
+    /* Animación para el botón de hamburguesa al abrirse */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Menú desplegable que se muestra debajo del header */
+    /* Menú desplegable que se muestra debajo del header */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 20px 0;
+        list-style: none;
+        display: none;
+        /* Oculto por defecto */
+        background-color: #32CD32;
+        /* Fondo verde */
+        width: 95vw;
+        /* Ocupa todo el ancho de la ventana */
+        height: 35vh;
+    }
+
+    nav ul.open {
+        display: flex;
+        /* Muestra el menú */
+    }
+
+    nav ul.show {
+        display: flex;
+        /* Mostramos el menú cuando se hace clic */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    nav ul,
+    nav ul li,
+    nav ul li a {
+        box-shadow: none;
+        /* Eliminar sombra */
+        border: none;
+        /* Eliminar bordes */
+    }
+
+    nav ul li a:hover {
+        color: black;
+        /* Cambia al verde al pasar el mouse */
+    }
+
+    .proposito-container {
+        flex-direction: column;
+        /* Cambia la disposición a vertical */
+        text-align: center;
+        /* Centra el texto */
+        gap: 20px;
+        /* Ajusta el espacio entre los elementos */
+        padding: 0 20px;
+        /* Añade un poco de padding horizontal */
+    }
+
+    .proposito-image {
+        display: flex;
+        justify-content: center;
+        /* Centra la imagen horizontalmente */
+        width: 100%;
+        /* Haz que el contenedor ocupe el ancho completo */
+    }
+
+    .proposito-image img {
+        width: 80%;
+        /* Ajusta el ancho de la imagen en móviles */
+        max-width: 300px;
+        /* Limita el ancho máximo de la imagen */
+        border-radius: 10px;
+    }
+
+    .proposito-content h2 {
+        font-size: 2rem;
+        /* Ajusta el tamaño del título en móviles */
+    }
+
+    .proposito-content p {
+        font-size: 1rem;
+        /* Ajusta el tamaño del texto en móviles */
+        line-height: 1.5;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
 }

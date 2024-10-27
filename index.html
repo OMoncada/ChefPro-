@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ChefPro - Agenda tu demo</title>
+    <title>ChefPro - Home</title>
     <link rel="stylesheet" href="/src/css/style.css">
 </head>
 
@@ -15,12 +15,17 @@
         <div class="logo">
             <img src="/src/images/logo.png" alt="ChefPro Logo">
         </div>
-        <nav>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
             <ul>
-                <li><a href="#">Agenda tu demo</a></li>
-                <li><a href="src/recipes/featured_recipes.html">Recetario</a></li>
-                <li><a href="/src/list/my-list.html">Lista</a></li>
-                <li><a href="/src/contact/contact.html">Contacto</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="/src/recipes/featured_recipes.html">Recipes</a></li>
+                <li><a href="/src/list/my-list.html">List</a></li>
+                <li><a href="/src/contact/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -28,15 +33,18 @@
     <main>
         <section class="demo-section">
             <div class="form-container">
-                <h2>¿Interesado en conocer más de ChefPro?</h2>
-                <p>Agenda una demostración online, personal y gratuita.</p>
-                <form>
-                    <!-- Usamos placeholders en lugar de etiquetas -->
-                    <input type="email" id="email" name="email" placeholder="Correo electrónico *" required>
-                    <input type="text" id="name" name="name" placeholder="Nombre *" required>
-                    <input type="tel" id="phone" name="phone" placeholder="Teléfono *" required>
-                    <input type="text" id="city" name="city" placeholder="Ciudad *" required>
-                    <button type="submit">ENVIAR</button>
+                <h2>Interested in learning more about ChefPro?</h2>
+                <p>Schedule a free, personal, online demonstration.</p>
+                <form id="contactForm">
+                    <input type="email" id="email" name="email" placeholder="Email *" required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+                    <input type="text" id="name" name="name" placeholder="Name *" required pattern="[A-Za-z\s]+"
+                        title="Only letters are allowed">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone *" required pattern="\d+"
+                        title="Only numbers are allowed">
+                    <input type="text" id="city" name="city" placeholder="City *" required pattern="[A-Za-z\s]+"
+                        title="Only letters are allowed">
+                    <button type="submit">SEND</button>
                 </form>
             </div>
         </section>
@@ -47,38 +55,48 @@
                     <img src="/src/images/purpose.png" alt=" imagen destacada">
                 </div>
                 <div class="proposito-content">
-                    <h2>Nuestro Propósito</h2>
+                    <h2>Our Purpose</h2>
                     <p>
-                        Ponemos a tu alcance miles de recetas mediante nuestro recetario. Estamos constantemente
-                        agregando nuevas recetas creadas y adaptadas por nuestro equipo para que funcionen perfectamente
-                        paso a paso en tu cocina. Logra resultados perfectos y sorprende a tu familia e invitados con
-                        increíbles preparaciones.
+                        We put thousands of recipes at your fingertips through our recipe book. We are constantly
+                        adding new recipes created and adapted by our team to make it work perfectly
+                        step by step in your kitchen. Achieve perfect results and surprise your family and guests with
+                        incredible preparations.
                     </p>
                 </div>
             </div>
         </section>
 
-
-        <section class="categories">
-            <h5>Nuestras Categorías</h5>
-            <div class="category-carousel-container">
-                <button id="category-prev" class="category-carousel-button">❮</button>
-                <div id="category-carousel" class="category-carousel">
-                    <div class="category-container">
-                        <!-- Aquí se cargarán dinámicamente las categorías desde la API -->
-                    </div>
-                </div>
-                <button id="category-next" class="category-carousel-button">❯</button>
-            </div>
-        </section>
+        <h3>Featured recipes</h3>
+        <div class="random-grid-container" id="random-grid">
+            <!-- Aquí se cargarán dinámicamente las recetas en una cuadrícula -->
+        </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>
+        <p>&copy; 2024 ChefPro. All rights reserved.</p>
     </footer>
 
     <script src="src/js/index.js"></script>
+
+    <!-- Modal de confirmación -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Thank you! You will receive an email to the provided address to schedule your day and time.</p>
+        </div>
+    </div>
+
+    <!-- Modal de Bienvenida -->
+    <div id="welcomeModal" class="welcome-modal">
+        <div class="welcome-modal-content">
+            <span class="close-welcome">&times;</span>
+            <h2>Welcome to ChefPro!</h2>
+            <p>Explore our catalog of recipes so you can have fun with your family. For any questions, no guys.
+                in contacting us.</p>
+            <button id="contactButton" class="contact-btn">Contact us</button>
+        </div>
+    </div>
 
 </body>
 

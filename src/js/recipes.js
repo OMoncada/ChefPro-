@@ -283,3 +283,14 @@ document.querySelector('.filters a').addEventListener('click', function (event) 
         })
         .catch(error => console.error('Error al recargar las recetas:', error));
 });
+
+
+// Selección de elementos del DOM
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+// Alternar el menú desplegable al hacer clic en el botón de hamburguesa
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');
+});

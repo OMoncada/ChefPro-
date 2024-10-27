@@ -5,23 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ChefPro - Agenda tu demo</title>
+    <title>ChefPro - Contact</title>
     <link rel="stylesheet" href="/src/contact/contact.css">
 </head>
 
 <body>
-    <!-- El alert.js insertará la alerta en la parte superior -->
 
     <header>
         <div class="logo">
             <img src="/src/images/logo.png" alt="ChefPro Logo">
         </div>
-        <nav>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
             <ul>
-                <li><a href="/index.html">Agenda tu demo</a></li>
-                <li><a href="/src/recipes/featured_recipes.html">Recetario</a></li>
-                <li><a href="#">Tienda</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/src/recipes/featured_recipes.html">Recipes</a></li>
+                <li><a href="/src/list/my-list.html">List</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -32,42 +36,47 @@
 
         <!-- Formulario de contacto -->
         <section class="contact-form">
-            <h1>¡Estemos en Contacto!</h1>
-            <h2>Déjanos un mensaje</h2>
-            <form>
-                <input type="email" id="email" name="email" placeholder="Correo electrónico *" required>
-                <input type="text" id="name" name="name" placeholder="Nombre *" required>
-                <input type="tel" id="phone" name="phone" placeholder="Teléfono *" required>
-                <input type="text" id="city" name="city" placeholder="Ciudad *" required>
-                <button type="submit">ENVIAR</button>
+            <h1>Let's be in contact!</h1>
+            <h2>Leave us a message</h2>
+            <form id="contactForm">
+                <input type="email" id="email" name="email" placeholder="Email *" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+                <input type="text" id="name" name="name" placeholder="Name *" required pattern="[A-Za-z\s]+"
+                    title="Only letters are allowed">
+                <input type="tel" id="phone" name="phone" placeholder="Phone *" required pattern="\d+"
+                    title="Only numbers are allowed">
+                <input type="text" id="city" name="city" placeholder="City *" required pattern="[A-Za-z\s]+"
+                    title="Only letters are allowed">
+                <button type="submit">SEND</button>
             </form>
         </section>
 
-        <!-- Sección de Ubícanos -->
         <section class="ubicacion">
-            <h2>Ubícanos</h2>
-            <p>Conoce nuestras sucursales</p>
+            <h2>Locate us</h2>
+            <p>Get to know our branches</p>
             <div class="map-container">
                 <div class="map">
                     <iframe src="https://www.google.com/maps/embed?pb=..." width="300" height="200" style="border:0;"
                         allowfullscreen="" loading="lazy"></iframe>
-                    <h3>Ubicacion</h3>
-                    <p>Lunes a viernes de 10:30 a 14:00 hrs. y de 15:00 a 19:15 hrs.<br>Sábados: de 10:30 a 14:00 hrs.
+                    <h3>Location</h3>
+                    <p>Monday to Friday from 10:30 a.m. to 2:00 p.m. and from 3:00 p.m. to 7:15 p.m.<br>Saturdays: from
+                        10:30 a.m. to 2:00 p.m.
                     </p>
                 </div>
                 <div class="map">
                     <iframe src="https://www.google.com/maps/embed?pb=..." width="300" height="200" style="border:0;"
                         allowfullscreen="" loading="lazy"></iframe>
-                    <h3>ubicacion</h3>
-                    <p>Lunes a Viernes de 09:30 a 18:00 hrs.<br>Sábados: cerrado<br>Av. Luis Pasteur #6600, local 105,
-                        chile</p>
+                    <h3>Location</h3>
+                    <p>Monday to Friday from 9:30 a.m. to 6:00 p.m.<br>Saturdays: closed<br>AV. Luis Pasteur #6600,
+                        local 105, Chile</p>
                 </div>
                 <div class="map">
                     <iframe src="https://www.google.com/maps/embed?pb=..." width="300" height="200" style="border:0;"
                         allowfullscreen="" loading="lazy"></iframe>
-                    <h3>ubicacion</h3>
-                    <p>Lunes a jueves de 9:15 a 14:00 hrs. y de 15:00 a 18:30 hrs.<br>Viernes de 9:15 a 14:00 hrs. y de
-                        15:00 a 17:30 hrs.</p>
+                    <h3>Location</h3>
+                    <p>Monday to Thursday from 9:15 a.m. to 2:00 p.m. and from 3:00 p.m. to 6:30 p.m.<br>Friday from
+                        9:15 a.m. to 2:00 p.m. and of
+                        3:00 p.m. to 5:30 p.m.</p>
                 </div>
             </div>
         </section>
@@ -76,9 +85,19 @@
 
 
     <footer>
-        <p>&copy; 2024 ChefPro. Todos los derechos reservados.</p>
+        <p>&copy; 2024 ChefPro. All rights reserved.</p>
     </footer>
-
+    <script src="/src/js/contact.js"></script>
 </body>
+
+<!-- Modal de confirmación -->
+<div id="contactConfirmationModal" class="modal">
+    <div class="modal-content">
+        <span class="close-contact-modal">&times;</span>
+        <p>Thank you so much! We will be in contact with you soon. Good day!</p>
+    </div>
+</div>
+
+
 
 </html>
